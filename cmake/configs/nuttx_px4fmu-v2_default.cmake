@@ -13,47 +13,47 @@ set(config_module_list
 	drivers/device
 	drivers/stm32
 	drivers/stm32/adc
-	drivers/stm32/tone_alarm
+        #drivers/stm32/tone_alarm   #remove by gzh
 	drivers/led
 	drivers/px4fmu
 	drivers/px4io
 	drivers/boards/px4fmu-v2
-	drivers/rgbled
+        #drivers/rgbled         #remove by gzh
 	drivers/mpu6000
-	drivers/mpu9250
-	drivers/lsm303d
-	drivers/l3gd20
+        #drivers/mpu9250        #remove by gzh
+        #drivers/lsm303d        #remove by gzh
+        #drivers/l3gd20         #remove by gzh
 	drivers/hmc5883
 	drivers/ms5611
 	#drivers/mb12xx
 	#drivers/srf02
-	drivers/sf0x
-	drivers/ll40ls
-	drivers/trone
+        #drivers/sf0x           #remove by gzh
+	#drivers/ll40ls
+        #drivers/trone          #remove by gzh
 	drivers/gps
-	drivers/pwm_out_sim
+        #drivers/pwm_out_sim    #remove by gzh
 	#drivers/hott
 	#drivers/hott/hott_telemetry
 	#drivers/hott/hott_sensors
 	#drivers/blinkm
-	drivers/airspeed
-	drivers/ets_airspeed
-	drivers/ms4525_airspeed
-	drivers/ms5525_airspeed
-	drivers/sdp3x_airspeed
-	drivers/frsky_telemetry
+	#drivers/airspeed
+	#drivers/ets_airspeed
+	#drivers/ms4525_airspeed
+	#drivers/ms5525_airspeed
+	#drivers/sdp3x_airspeed
+	#drivers/frsky_telemetry
 	modules/sensors
 	#drivers/mkblctrl
 	drivers/px4flow
 	#drivers/oreoled
-	drivers/vmount
-	drivers/pwm_input
-	drivers/camera_trigger
-	drivers/bst
+	#drivers/vmount
+	#drivers/pwm_input
+	#drivers/camera_trigger
+	#drivers/bst
 	#drivers/snapdragon_rc_pwm
-	drivers/lis3mdl
+	#drivers/lis3mdl
 	#drivers/iridiumsbd
-	drivers/ulanding
+	#drivers/ulanding
 
 	#
 	# System commands

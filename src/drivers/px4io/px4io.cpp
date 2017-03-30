@@ -1145,7 +1145,7 @@ PX4IO::task_main()
 
 				if (safety_param != PARAM_INVALID) {
 
-					param_get(safety_param, &safety_param_val);
+					safety_param_val = PX4IO_FORCE_SAFETY_MAGIC;		// param_get(safety_param, &safety_param_val);	//change by gzh 
 
 					if (safety_param_val == PX4IO_FORCE_SAFETY_MAGIC) {
 						/* disable IO safety if circuit breaker asked for it */

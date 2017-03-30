@@ -216,7 +216,7 @@ stm32_boardinitialize(void)
 
 static struct spi_dev_s *spi1;
 static struct spi_dev_s *spi2;
-static struct spi_dev_s *spi4;
+//static struct spi_dev_s *spi4;		//remove by gzh
 static struct sdio_dev_s *sdio;
 
 __EXPORT int board_app_initialize(uintptr_t arg)
@@ -404,13 +404,13 @@ __EXPORT int board_app_initialize(uintptr_t arg)
 
 	/* initial LED state */
 	drv_led_start();
-	led_off(LED_AMBER);
+    led_off(LED_AMBER);
 
 	/* Configure SPI-based devices */
 
 	spi1 = stm32_spibus_initialize(1);
 
-	if (!spi1) {
+    if (!spi1) {
 		message("[boot] FAILED to initialize SPI port 1\n");
 		board_autoled_on(LED_AMBER);
 		return -ENODEV;
@@ -445,14 +445,14 @@ __EXPORT int board_app_initialize(uintptr_t arg)
 	SPI_SETMODE(spi2, SPIDEV_MODE3);
 	SPI_SELECT(spi2, SPIDEV_FLASH, false);
 
-	spi4 = stm32_spibus_initialize(4);
+//	spi4 = stm32_spibus_initialize(4);
 
-	/* Default SPI4 to 1MHz and de-assert the known chip selects. */
-	SPI_SETFREQUENCY(spi4, 10000000);
-	SPI_SETBITS(spi4, 8);
-	SPI_SETMODE(spi4, SPIDEV_MODE3);
-	SPI_SELECT(spi4, PX4_SPIDEV_EXT0, false);
-	SPI_SELECT(spi4, PX4_SPIDEV_EXT1, false);
+//	/* Default SPI4 to 1MHz and de-assert the known chip selects. */
+//	SPI_SETFREQUENCY(spi4, 10000000);
+//	SPI_SETBITS(spi4, 8);
+//	SPI_SETMODE(spi4, SPIDEV_MODE3);
+//	SPI_SELECT(spi4, PX4_SPIDEV_EXT0, false);
+//	SPI_SELECT(spi4, PX4_SPIDEV_EXT1, false);
 
 #ifdef CONFIG_MMCSD
 	/* First, get an instance of the SDIO interface */

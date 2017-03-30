@@ -70,7 +70,7 @@ int check_if_batt_disconnected(orb_advert_t *mavlink_log_pub) {
 	if (battery.voltage_filtered_v > 3.0f && !(hrt_absolute_time() - battery.timestamp > 500000)) {
 		mavlink_log_info(mavlink_log_pub, "Please disconnect battery and try again!");
 		return PX4_ERROR;
-	}
+	}							
 	return PX4_OK;
 }
 
@@ -127,7 +127,7 @@ int do_esc_calibration(orb_advert_t *mavlink_log_pub, struct actuator_armed_s* a
 	if (battery.voltage_filtered_v > 3.0f) {
 		calibration_log_critical(mavlink_log_pub, CAL_QGC_FAILED_MSG, "Disconnect battery and try again");
 		goto Error;
-	}
+	}							
 
 	armed->in_esc_calibration_mode = true;
 

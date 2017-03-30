@@ -51,7 +51,13 @@ static struct hrt_call failsafe_call;
  * Count the number of times in a row that we see the arming button
  * held down.
  */
+ 
+	//change by gzh for remove safety switch
+#ifdef GPIO_BTN_SAFETY	
 static unsigned counter = 0;
+static unsigned blink_counter = 0;
+static bool safety_button_pressed;
+#endif
 
 /*
  * Define the various LED flash sequences for each system state.
@@ -62,7 +68,6 @@ static unsigned counter = 0;
 #define LED_PATTERN_FMU_ARMED 			0x5500		/**< long off, then quad blink 		*/
 #define LED_PATTERN_IO_FMU_ARMED 		0xffff		/**< constantly on			*/
 
-static unsigned blink_counter = 0;
 
 /*
  * IMPORTANT: The arming state machine critically
@@ -73,7 +78,6 @@ static unsigned blink_counter = 0;
  */
 #define ARM_COUNTER_THRESHOLD	10
 
-static bool safety_button_pressed;
 
 static void safety_check_button(void *arg);
 static void failsafe_blink(void *arg);
@@ -95,6 +99,9 @@ failsafe_led_init(void)
 static void
 safety_check_button(void *arg)
 {
+	//change by gzh for remove safety switch
+#ifdef GPIO_BTN_SAFETY	
+
 	/*
 	 * Debounce the safety button, change state if it has been held for long enough.
 	 *
@@ -161,6 +168,7 @@ safety_check_button(void *arg)
 	if (blink_counter > 15) {
 		blink_counter = 0;
 	}
+#endif	
 }
 
 static void

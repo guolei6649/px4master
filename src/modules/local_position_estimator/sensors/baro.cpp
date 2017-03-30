@@ -40,7 +40,7 @@ int BlockLocalPositionEstimator::baroMeasure(Vector<float, n_y_baro> &y)
 {
 	//measure
 	y.setZero();
-	y(0) = _sub_sensor.get().baro_alt_meter;
+	y(0) =_sub_sensor.get().baro_alt_meter;
 	_baroStats.update(y);
 	_time_last_baro = _timeStamp;
 	return OK;

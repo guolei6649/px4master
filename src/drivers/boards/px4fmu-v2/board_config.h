@@ -68,7 +68,7 @@
 /* PX4FMU GPIOs ***********************************************************************************/
 /* LEDs */
 
-#define GPIO_LED1		(GPIO_OUTPUT|GPIO_OPENDRAIN|GPIO_SPEED_50MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTE|GPIO_PIN12)
+#define GPIO_LED1		(GPIO_OUTPUT|GPIO_OPENDRAIN|GPIO_SPEED_50MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTE|GPIO_PIN15)
 
 /* External interrupts */
 #define GPIO_EXTI_GYRO_DRDY	(GPIO_INPUT|GPIO_FLOAT|GPIO_EXTI|GPIO_PORTB|GPIO_PIN0)
@@ -186,7 +186,7 @@
 /* Power supply control and monitoring GPIOs */
 #define GPIO_VDD_5V_PERIPH_EN	(GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTA|GPIO_PIN8)
 #define GPIO_VDD_BRICK_VALID	(GPIO_INPUT|GPIO_PULLUP|GPIO_PORTB|GPIO_PIN5)
-#define GPIO_VDD_SERVO_VALID	(GPIO_INPUT|GPIO_PULLUP|GPIO_PORTB|GPIO_PIN7)
+//#define GPIO_VDD_SERVO_VALID	(GPIO_INPUT|GPIO_PULLUP|GPIO_PORTB|GPIO_PIN7)
 #define GPIO_VDD_3V3_SENSORS_EN	(GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_SET|GPIO_PORTE|GPIO_PIN3)
 #define GPIO_VDD_5V_HIPOWER_OC	(GPIO_INPUT|GPIO_PULLUP|GPIO_PORTE|GPIO_PIN10)
 #define GPIO_VDD_5V_PERIPH_OC	(GPIO_INPUT|GPIO_PULLUP|GPIO_PORTE|GPIO_PIN15)
@@ -249,8 +249,8 @@
  */
 #define BOARD_ADC_USB_CONNECTED (px4_arch_gpioread(GPIO_OTGFS_VBUS))
 #define BOARD_ADC_BRICK_VALID   (!px4_arch_gpioread(GPIO_VDD_BRICK_VALID))
-#define BOARD_ADC_SERVO_VALID   (!px4_arch_gpioread(GPIO_VDD_SERVO_VALID))
-#define BOARD_ADC_PERIPH_5V_OC  (!px4_arch_gpioread(GPIO_VDD_5V_PERIPH_OC))
+#define BOARD_ADC_SERVO_VALID   (1)  	//change by gzh
+#define BOARD_ADC_PERIPH_5V_OC  (1)	//change by gzh		(!px4_arch_gpioread(GPIO_VDD_5V_PERIPH_OC))
 #define BOARD_ADC_HIPOWER_5V_OC (!px4_arch_gpioread(GPIO_VDD_5V_HIPOWER_OC))
 
 #define BOARD_HAS_PWM	DIRECT_PWM_OUTPUT_CHANNELS
@@ -265,9 +265,8 @@
 		{0,                      GPIO_VDD_5V_PERIPH_EN,   0}, \
 		{0,                      GPIO_VDD_3V3_SENSORS_EN, 0}, \
 		{GPIO_VDD_BRICK_VALID,   0,                       0}, \
-		{GPIO_VDD_SERVO_VALID,   0,                       0}, \
-		{GPIO_VDD_5V_HIPOWER_OC, 0,                       0}, \
-		{GPIO_VDD_5V_PERIPH_OC,  0,                       0}, }
+		{GPIO_VDD_5V_HIPOWER_OC, 0,                       0}, }/*\    //change by gzh
+		{GPIO_VDD_5V_PERIPH_OC,  0,                       0}, */
 
 /*
  * GPIO numbers.

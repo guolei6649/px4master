@@ -83,6 +83,7 @@ __EXPORT const io_timers_t io_timers[MAX_IO_TIMERS] = {
 	}
 };
 
+//add comments by gzh : These are timer can change motors map via px4io
 __EXPORT const timer_io_channels_t timer_io_channels[MAX_TIMER_IO_CHANNELS] = {
 	{
 		.gpio_out = GPIO_TIM2_CH1OUT,
