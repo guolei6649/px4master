@@ -98,7 +98,7 @@
 #endif
 
 #define DEFAULT_REMOTE_PORT_UDP			14550 ///< GCS port per MAVLink spec
-#define DEFAULT_DEVICE_NAME			"/dev/ttyS1"		//change by gzh
+#define DEFAULT_DEVICE_NAME			"/dev/ttyS0"		//change by gzh
 #define MAX_DATA_RATE				10000000	///< max data rate in bytes/s
 #define MAIN_LOOP_DELAY 			10000	///< 100 Hz @ 1000 bytes/s data rate
 #define FLOW_CONTROL_DISABLE_THRESHOLD		40	///< picked so that some messages still would fit it.
@@ -191,7 +191,7 @@ bool Mavlink::_boot_complete = false;
 bool Mavlink::_config_link_on = false;
 
 Mavlink::Mavlink() :
-	_device_name("/dev/ttyS1"),			//change by gzh
+	_device_name("/dev/ttyS0"),			//change by gzh
 	_task_should_exit(false),
 	next(nullptr),
 	_instance_id(0),
