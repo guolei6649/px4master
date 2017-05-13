@@ -112,6 +112,10 @@
 #define LED_PATTERN_FMU_ARMED 			0x5500		/**< long off, then quad blink 		*/
 #define LED_PATTERN_IO_FMU_ARMED 		0xffff		/**< constantly on			*/
 
+#ifdef PX4FMU_V2_UPDATE
+#define INVERT_RC_INPUT(_s)
+#endif
+
 #if !defined(BOARD_HAS_PWM)
 #  error "board_config.h needs to define BOARD_HAS_PWM"
 #endif
@@ -1463,7 +1467,6 @@ PX4FMU::cycle()
 				// Configure serial port for SBUS
 				sbus_config(_rcs_fd, false);
 				rc_io_invert(true);
-
 			} else if (_rc_scan_locked
 				   || _cycle_timestamp - _rc_scan_begin < rc_scan_max) {
 

@@ -58,6 +58,8 @@ extern void led_init(void);
 extern void led_on(int led);
 extern void led_off(int led);
 extern void led_toggle(int led);
+extern void led_nuttx_status(bool status);
+
 __END_DECLS
 
 __EXPORT void led_init()
@@ -65,6 +67,8 @@ __EXPORT void led_init()
 	/* Configure LED1 GPIO for output */
 
 	stm32_configgpio(GPIO_LED1);
+	/* Configure GPIO_NUTTX_LED GPIO for output */
+	stm32_configgpio(GPIO_NUTTX_LED);
 }
 
 __EXPORT void led_on(int led)
@@ -94,3 +98,16 @@ __EXPORT void led_toggle(int led)
 		}
 	}
 }
+
+__EXPORT void led_nuttx_status(bool status)
+{
+	if (status) {
+		/* nuttx system err*/
+		px4_arch_gpiowrite(GPIO_NUTTX_LED, true);
+	}
+        else{
+               /* nuttx system start operation*/
+               px4_arch_gpiowrite(GPIO_NUTTX_LED, false);
+        }
+}
+

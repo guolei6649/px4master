@@ -81,7 +81,9 @@ fi
 if ver hwcmp PX4FMU_V2
 then
 	# External I2C bus
-	if hmc5883 -C -T -X start
+	# if hmc5883 -C -T -X start
+
+	if ist8310 -b 1 start
 	then
 	fi
 

@@ -114,6 +114,8 @@ __BEGIN_DECLS
 extern void led_init(void);
 extern void led_on(int led);
 extern void led_off(int led);
+extern void led_nuttx_status(bool status);
+
 __END_DECLS
 
 /****************************************************************************
@@ -405,6 +407,7 @@ __EXPORT int board_app_initialize(uintptr_t arg)
 	/* initial LED state */
 	drv_led_start();
     led_off(LED_AMBER);
+	led_nuttx_status(0);  //nuttx system start operation
 
 	/* Configure SPI-based devices */
 

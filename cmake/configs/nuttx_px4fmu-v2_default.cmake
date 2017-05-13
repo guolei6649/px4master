@@ -16,14 +16,15 @@ set(config_module_list
         #drivers/stm32/tone_alarm   #remove by gzh
 	drivers/led
 	drivers/px4fmu
-	drivers/px4io
+	#drivers/px4io			#remove by xgd
 	drivers/boards/px4fmu-v2
         #drivers/rgbled         #remove by gzh
 	drivers/mpu6000
         #drivers/mpu9250        #remove by gzh
         #drivers/lsm303d        #remove by gzh
         #drivers/l3gd20         #remove by gzh
-	drivers/hmc5883
+	#drivers/hmc5883
+	drivers/ist8310
 	drivers/ms5611
 	#drivers/mb12xx
 	#drivers/srf02
@@ -142,6 +143,7 @@ set(config_module_list
 	lib/controllib
 	lib/mathlib
 	lib/mathlib/math/filter
+	lib/rc
 	lib/ecl
 	lib/external_lgpl
 	lib/geo
@@ -199,9 +201,10 @@ set(config_extra_builtin_cmds
 	sercon
 	)
 
-set(config_io_board
-	px4io-v2
-	)
+#remove by gzh
+#set(config_io_board
+#	px4io-v2
+#	)
 
 #set(config_extra_libs
 #	uavcan
