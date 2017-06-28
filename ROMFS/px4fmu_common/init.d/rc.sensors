@@ -83,7 +83,7 @@ then
 	# External I2C bus
 	# if hmc5883 -C -T -X start
 
-	if ist8310 -b 1 start
+	if ist8310 -C -b 1 -R 14 start
 	then
 	fi
 

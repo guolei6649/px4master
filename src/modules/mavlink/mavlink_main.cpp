@@ -222,7 +222,7 @@ Mavlink::Mavlink() :
 	_forwarding_on(false),
 	_ftp_on(false),
 	_uart_fd(-1),
-	_baudrate(57600),
+	_baudrate(115200),
 	_datarate(1000),
 	_datarate_events(500),
 	_rate_mult(1.0f),
@@ -1722,9 +1722,9 @@ int
 Mavlink::task_main(int argc, char *argv[])
 {
 	int ch;
-	_baudrate = 57600;
-	_datarate = 0;
-	_mode = MAVLINK_MODE_NORMAL;
+	_baudrate = 115200;
+	_datarate = 20000;
+	_mode = MAVLINK_MODE_OSD;	//MAVLINK_MODE_NORMAL; change by gzh
 
 #ifdef __PX4_NUTTX
 	/* the NuttX optarg handler does not
@@ -2049,16 +2049,17 @@ Mavlink::task_main(int argc, char *argv[])
 	case MAVLINK_MODE_OSD:
 		configure_stream("SYS_STATUS", 5.0f);
 		configure_stream("EXTENDED_SYS_STATE", 1.0f);
-		configure_stream("ATTITUDE", 25.0f);
+		configure_stream("ATTITUDE", 20.0f);
 		configure_stream("RC_CHANNELS", 5.0f);
 		configure_stream("SERVO_OUTPUT_RAW_0", 1.0f);
 		configure_stream("ALTITUDE", 1.0f);
 		configure_stream("GPS_RAW_INT", 1.0f);
+		configure_stream("DISTANCE_SENSOR", 20.0f);	//add by gzh
 		configure_stream("ESTIMATOR_STATUS", 1.0f);
 		configure_stream("GLOBAL_POSITION_INT", 10.0f);
 		configure_stream("ATTITUDE_TARGET", 10.0f);
 		configure_stream("HOME_POSITION", 0.5f);
-		configure_stream("VFR_HUD", 25.0f);
+		configure_stream("VFR_HUD", 4.0f);
 		configure_stream("WIND_COV", 2.0f);
 		configure_stream("SYSTEM_TIME", 1.0f);
 		break;

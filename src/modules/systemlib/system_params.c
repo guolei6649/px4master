@@ -98,12 +98,12 @@ PARAM_DEFINE_INT32(SYS_RESTART_TYPE, 2);
  * @value 1 local_position_estimator, attitude_estimator_q
  * @value 2 ekf2
  *
- * @min 1
+ * @min 0
  * @max 2
  * @reboot_required true
  * @group System
  */
-PARAM_DEFINE_INT32(SYS_MC_EST_GROUP, 2);
+PARAM_DEFINE_INT32(SYS_MC_EST_GROUP, 0);
 
 /**
  * TELEM2 as companion computer link

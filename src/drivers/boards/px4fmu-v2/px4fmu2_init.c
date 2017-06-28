@@ -115,6 +115,7 @@ extern void led_init(void);
 extern void led_on(int led);
 extern void led_off(int led);
 extern void led_nuttx_status(bool status);
+extern void board_pwr_init(int stage);
 
 __END_DECLS
 
@@ -183,6 +184,8 @@ stm32_boardinitialize(void)
 	stm32_configgpio(GPIO_GPIO3_OUTPUT);
 	stm32_configgpio(GPIO_GPIO4_OUTPUT);
 	stm32_configgpio(GPIO_GPIO5_OUTPUT);
+	/* Hold power state */
+	board_pwr_init(0);
 
 	/* configure SPI interfaces */
 	stm32_spiinitialize();
@@ -269,6 +272,7 @@ __EXPORT int board_app_initialize(uintptr_t arg)
 		       ts_to_abstime(&ts),
 		       (hrt_callout)stm32_serial_dma_poll,
 		       NULL);
+<<<<<<< master
 
 #if defined(CONFIG_STM32_BBSRAM)
 
@@ -404,6 +408,9 @@ __EXPORT int board_app_initialize(uintptr_t arg)
 #endif // CONFIG_STM32_SAVE_CRASHDUMP
 #endif // CONFIG_STM32_BBSRAM
 
+	
+	board_pwr_init(1);
+	
 	/* initial LED state */
 	drv_led_start();
     led_off(LED_AMBER);
