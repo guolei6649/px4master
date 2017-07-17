@@ -1723,8 +1723,8 @@ Mavlink::task_main(int argc, char *argv[])
 {
 	int ch;
 	_baudrate = 115200;
-	_datarate = 20000;
-	_mode = MAVLINK_MODE_OSD;	//MAVLINK_MODE_NORMAL; change by gzh
+	_datarate = 0;
+	_mode = MAVLINK_MODE_NORMAL;  //change by gzh
 
 #ifdef __PX4_NUTTX
 	/* the NuttX optarg handler does not

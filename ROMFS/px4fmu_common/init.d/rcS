@@ -840,8 +840,6 @@ then
 			unset LOGGER_BUF
 			unset LOGGER_ARGS
 		fi
-		#add by gzh
-		sleep 1
 	fi
 
 	#

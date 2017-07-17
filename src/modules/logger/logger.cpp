@@ -880,6 +880,7 @@ void Logger::run()
 					if (_should_stop_file_log) { // happens on quick arming after disarm
 						_should_stop_file_log = false;
 						stop_log_file();
+						PX4_INFO("hahaha!");
 					}
 
 					start_log_file();

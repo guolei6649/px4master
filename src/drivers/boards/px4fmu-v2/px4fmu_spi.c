@@ -195,6 +195,7 @@ __EXPORT uint8_t stm32_spi2status(FAR struct spi_dev_s *dev, enum spi_dev_e devi
 }
 #endif
 
+#ifdef CONFIG_STM32_SPI4
 __EXPORT void stm32_spi4select(FAR struct spi_dev_s *dev, enum spi_dev_e devid, bool selected)
 {
 	/* SPI select is active low, so write !selected to select the device */
@@ -242,6 +243,7 @@ __EXPORT uint8_t stm32_spi4status(FAR struct spi_dev_s *dev, enum spi_dev_e devi
 {
 	return SPI_STATUS_PRESENT;
 }
+#endif
 
 __EXPORT void board_spi_reset(int ms)
 {

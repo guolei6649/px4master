@@ -173,7 +173,7 @@ stm32_boardinitialize(void)
 	stm32_configgpio(GPIO_VDD_5V_PERIPH_EN);
 	stm32_configgpio(GPIO_VDD_3V3_SENSORS_EN);
 	stm32_configgpio(GPIO_VDD_BRICK_VALID);
-	stm32_configgpio(GPIO_VDD_SERVO_VALID);
+	//stm32_configgpio(GPIO_VDD_SERVO_VALID);
 	stm32_configgpio(GPIO_VDD_5V_HIPOWER_OC);
 	stm32_configgpio(GPIO_VDD_5V_PERIPH_OC);
 
@@ -272,7 +272,6 @@ __EXPORT int board_app_initialize(uintptr_t arg)
 		       ts_to_abstime(&ts),
 		       (hrt_callout)stm32_serial_dma_poll,
 		       NULL);
-<<<<<<< master
 
 #if defined(CONFIG_STM32_BBSRAM)
 

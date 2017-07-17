@@ -214,8 +214,6 @@
 #define GPIO_USART1_RX	GPIO_USART1_RX_2	 /* console in from IO */
 #define GPIO_USART1_TX	GPIO_USART1_TX_2	/* change by gzh */
 
-#define GPIO_USART1_RX   GPIO_USART1_RX_1    /* Console in from IO */
-#define GPIO_USART1_TX   0                   /* USART1 is RX-only */
 
 #define GPIO_USART2_RX   GPIO_USART2_RX_2
 #define GPIO_USART2_TX   GPIO_USART2_TX_2

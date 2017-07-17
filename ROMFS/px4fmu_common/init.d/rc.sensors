@@ -149,7 +149,7 @@ then
 		fi
 	else
 		# FMUv2	change by gzh
-		if mpu6000 -R 8 start
+		if mpu6000 -R 4 start
 		then
 		fi
 
